@@ -71,35 +71,6 @@
             padding: 0 16px;
         }
 
-        /* ==================== LOADING SCREEN ==================== */
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-primary);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid var(--border-color);
-            border-top: 4px solid var(--accent-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         /* ==================== USER PANEL STYLES ==================== */
         #user-panel {
             padding-bottom: 80px;
@@ -938,12 +909,6 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="spinner"></div>
-        <p style="margin-top: 20px; color: var(--text-secondary);">Loading SuperAirDrop...</p>
-    </div>
-
     <!-- Theme Toggle -->
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
         <span id="themeIcon">🌙</span>
@@ -1454,13 +1419,13 @@
         // ==================== FIREBASE CONFIGURATION ====================
         // IMPORTANT: Replace with your Firebase configuration
         const firebaseConfig = {
-  apiKey: "AIzaSyDOMdnCV2hXOveocXtEnnwICzJjp0Bb4Mg",
-  authDomain: "superairdrop-90c6d.firebaseapp.com",
-  projectId: "superairdrop-90c6d",
-  storageBucket: "superairdrop-90c6d.firebasestorage.app",
-  messagingSenderId: "623122845001",
-  appId: "1:623122845001:web:5b0758778b7424dbf75e98"
-};
+            apiKey: "AIzaSyDOMdnCV2hXOveocXtEnnwICzJjp0Bb4Mg",
+            authDomain: "superairdrop-90c6d.firebaseapp.com",
+            projectId: "superairdrop-90c6d",
+            storageBucket: "superairdrop-90c6d.firebasestorage.app",
+            messagingSenderId: "623122845001",
+            appId: "1:623122845001:web:5b0758778b7424dbf75e98"
+        };
 
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -1551,7 +1516,6 @@
                 renderWeeklyChart();
 
                 // Show user panel
-                document.getElementById('loading-screen').classList.add('hidden');
                 document.getElementById('user-panel').classList.remove('hidden');
             } catch (error) {
                 console.error('Error initializing user panel:', error);
@@ -2079,7 +2043,6 @@
 
         // ==================== ADMIN PANEL FUNCTIONS ====================
         async function initAdminPanel() {
-            document.getElementById('loading-screen').classList.add('hidden');
             document.getElementById('admin-panel').classList.remove('hidden');
             document.getElementById('admin-login').classList.remove('hidden');
         }
