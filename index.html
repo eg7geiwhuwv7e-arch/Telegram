@@ -1479,8 +1479,10 @@
 
         // ==================== INITIALIZATION ====================
         window.addEventListener('load', async () => {
-            // Check if running in Telegram
-            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData) {
+            // Check if running in Telegram Web App
+            const isTelegramWebApp = checkTelegramWebApp();
+            
+            if (isTelegramWebApp) {
                 // User Panel Mode
                 initUserPanel();
             } else {
@@ -1493,6 +1495,27 @@
             document.documentElement.setAttribute('data-theme', savedTheme);
             updateThemeIcon();
         });
+
+        // Function to check if running in Telegram Web App
+        function checkTelegramWebApp() {
+            // Check for Telegram Web App specific properties
+            if (window.Telegram && window.Telegram.WebApp) {
+                const tg = window.Telegram.WebApp;
+                
+                // Check if we have initData or if platform is not 'unknown'
+                if (tg.initData || tg.platform !== 'unknown') {
+                    return true;
+                }
+            }
+            
+            // Additional check for Telegram-specific URL parameters
+            if (window.location.search.includes('tgWebAppPlatform') || 
+                window.location.search.includes('tgWebAppVersion')) {
+                return true;
+            }
+            
+            return false;
+        }
 
         // ==================== USER PANEL FUNCTIONS ====================
         async function initUserPanel() {
