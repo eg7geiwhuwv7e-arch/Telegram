@@ -19,6 +19,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
@@ -59,6 +60,8 @@
             line-height: 1.6;
             transition: background-color 0.3s ease;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .hidden {
@@ -243,10 +246,10 @@
 
         /* Buttons */
         .btn {
-            padding: 12px 24px;
+            padding: 16px 24px;
             border: none;
             border-radius: 12px;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -256,6 +259,7 @@
             gap: 8px;
             text-decoration: none;
             text-align: center;
+            min-height: 54px;
         }
 
         .btn-primary {
@@ -316,6 +320,7 @@
         .task-title {
             font-weight: 600;
             margin-bottom: 4px;
+            font-size: 16px;
         }
 
         .task-description {
@@ -362,6 +367,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 14px;
         }
 
         .tab-btn.active {
@@ -429,19 +435,20 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .form-input,
         .form-select {
             width: 100%;
-            padding: 12px;
+            padding: 16px;
             border: 2px solid var(--border-color);
             border-radius: 12px;
             background: var(--bg-primary);
             color: var(--text-primary);
-            font-size: 14px;
+            font-size: 16px;
             transition: border-color 0.3s ease;
+            min-height: 54px;
         }
 
         .form-input:focus,
@@ -533,6 +540,7 @@
             text-decoration: none;
             font-size: 12px;
             padding: 8px 16px;
+            min-width: 60px;
         }
 
         .nav-item.active {
@@ -627,7 +635,7 @@
         }
 
         .admin-menu-item {
-            padding: 12px 24px;
+            padding: 16px 24px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -635,6 +643,7 @@
             gap: 12px;
             color: var(--text-primary);
             text-decoration: none;
+            font-size: 16px;
         }
 
         .admin-menu-item:hover {
@@ -720,8 +729,9 @@
         }
 
         .btn-sm {
-            padding: 6px 12px;
-            font-size: 12px;
+            padding: 8px 16px;
+            font-size: 14px;
+            min-height: auto;
         }
 
         /* Modal */
@@ -781,29 +791,33 @@
 
         .search-input {
             width: 100%;
-            padding: 12px 16px 12px 40px;
+            padding: 16px 16px 16px 48px;
             border: 2px solid var(--border-color);
             border-radius: 12px;
             background: var(--bg-primary);
             color: var(--text-primary);
+            font-size: 16px;
+            min-height: 54px;
         }
 
         .search-icon {
             position: absolute;
-            left: 12px;
+            left: 16px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-secondary);
+            font-size: 20px;
         }
 
         /* Alert Messages */
         .alert {
-            padding: 12px 16px;
+            padding: 16px;
             border-radius: 12px;
             margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 12px;
+            font-size: 16px;
         }
 
         .alert-success {
@@ -837,6 +851,37 @@
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .container {
+                padding: 0 12px;
+            }
+            
+            .card {
+                padding: 16px;
+            }
+            
+            .user-header {
+                padding: 16px 12px;
+            }
+            
+            .balance-amount {
+                font-size: 28px;
+            }
+            
+            .btn {
+                padding: 14px 20px;
+                font-size: 16px;
+                min-height: 50px;
+            }
+            
+            .modal-content {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .admin-content {
+                padding: 16px;
+            }
         }
 
         /* Quick Links */
@@ -847,7 +892,7 @@
         }
 
         .quick-link {
-            padding: 16px;
+            padding: 20px;
             background: var(--bg-tertiary);
             border-radius: 12px;
             text-align: center;
@@ -855,6 +900,7 @@
             color: var(--text-primary);
             font-weight: 600;
             transition: all 0.3s ease;
+            font-size: 16px;
         }
 
         .quick-link:hover {
@@ -893,7 +939,7 @@
         }
 
         .earning-info {
-            font-size: 14px;
+            font-size: 16px;
             opacity: 0.9;
         }
 
@@ -905,6 +951,72 @@
 
         .copied {
             animation: copied 0.3s ease;
+        }
+
+        /* Mobile-specific improvements */
+        @media (max-width: 480px) {
+            .stats-grid {
+                gap: 8px;
+            }
+            
+            .stat-card {
+                padding: 12px;
+            }
+            
+            .stat-value {
+                font-size: 20px;
+            }
+            
+            .task-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .leaderboard-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-item {
+                padding: 8px 12px;
+                min-width: 50px;
+            }
+            
+            .nav-icon {
+                font-size: 20px;
+            }
+            
+            .form-input,
+            .form-select {
+                padding: 14px;
+                min-height: 50px;
+            }
+        }
+
+        /* Error Message Styling */
+        .error-message {
+            background: var(--danger);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px;
+            font-size: 16px;
+        }
+
+        .retry-button {
+            margin-top: 12px;
+            background: white;
+            color: var(--danger);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -1414,10 +1526,17 @@
         </div>
     </div>
 
+    <!-- Error Message Container -->
+    <div id="error-container" class="hidden">
+        <div class="error-message">
+            <p id="error-text">Error loading app. Please try again.</p>
+            <button class="retry-button" onclick="retryInitialization()">Retry</button>
+        </div>
+    </div>
+
     <!-- Main JavaScript -->
     <script>
         // ==================== FIREBASE CONFIGURATION ====================
-        // IMPORTANT: Replace with your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDOMdnCV2hXOveocXtEnnwICzJjp0Bb4Mg",
             authDomain: "superairdrop-90c6d.firebaseapp.com",
@@ -1428,8 +1547,14 @@
         };
 
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+        let db;
+        try {
+            firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+        } catch (error) {
+            console.error('Firebase initialization error:', error);
+            showError('Firebase initialization failed. Please check your configuration.');
+        }
 
         // ==================== GLOBAL VARIABLES ====================
         let currentUser = null;
@@ -1444,21 +1569,21 @@
 
         // ==================== INITIALIZATION ====================
         window.addEventListener('load', async () => {
+            // Load theme preference
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon();
+
             // Check if running in Telegram Web App
             const isTelegramWebApp = checkTelegramWebApp();
             
             if (isTelegramWebApp) {
                 // User Panel Mode
-                initUserPanel();
+                await initUserPanel();
             } else {
                 // Admin Panel Mode
                 initAdminPanel();
             }
-
-            // Load theme preference
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            updateThemeIcon();
         });
 
         // Function to check if running in Telegram Web App
@@ -1486,6 +1611,10 @@
         async function initUserPanel() {
             try {
                 const tg = window.Telegram.WebApp;
+                if (!tg) {
+                    throw new Error('Telegram Web App not detected');
+                }
+                
                 tg.ready();
                 tg.expand();
 
@@ -1517,9 +1646,30 @@
 
                 // Show user panel
                 document.getElementById('user-panel').classList.remove('hidden');
+                
+                // Hide any error messages
+                document.getElementById('error-container').classList.add('hidden');
             } catch (error) {
                 console.error('Error initializing user panel:', error);
-                alert('Error loading app. Please try again.');
+                showError('Error loading app: ' + error.message);
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('error-text').textContent = message;
+            document.getElementById('error-container').classList.remove('hidden');
+            document.getElementById('user-panel').classList.add('hidden');
+            document.getElementById('admin-panel').classList.add('hidden');
+        }
+
+        function retryInitialization() {
+            document.getElementById('error-container').classList.add('hidden');
+            const isTelegramWebApp = checkTelegramWebApp();
+            
+            if (isTelegramWebApp) {
+                initUserPanel();
+            } else {
+                initAdminPanel();
             }
         }
 
@@ -1776,35 +1926,40 @@
         }
 
         async function loadBonusTasks() {
-            const tasksSnapshot = await db.collection('tasks').get();
-            const tasksList = document.getElementById('bonusTasksList');
-            
-            if (tasksSnapshot.empty) {
-                tasksList.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">No bonus tasks available</p>';
-                return;
-            }
-
-            tasksList.innerHTML = '';
-            tasksSnapshot.forEach(doc => {
-                const task = { id: doc.id, ...doc.data() };
-                const isCompleted = currentUser.completedBonusTasks.includes(task.id);
+            try {
+                const tasksSnapshot = await db.collection('tasks').get();
+                const tasksList = document.getElementById('bonusTasksList');
                 
-                const taskElement = document.createElement('div');
-                taskElement.className = 'task-item';
-                taskElement.innerHTML = `
-                    <div class="task-info">
-                        <div class="task-title">${task.title}</div>
-                        <div class="task-description">${task.description}</div>
-                        <div class="task-reward">+${task.reward} USDT</div>
-                    </div>
-                    <button class="btn ${isCompleted ? 'btn-secondary' : 'btn-success'}" 
-                            onclick="claimBonusTask('${task.id}', '${task.url}')" 
-                            ${isCompleted ? 'disabled' : ''}>
-                        ${isCompleted ? 'Claimed' : 'Claim Bonus'}
-                    </button>
-                `;
-                tasksList.appendChild(taskElement);
-            });
+                if (tasksSnapshot.empty) {
+                    tasksList.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">No bonus tasks available</p>';
+                    return;
+                }
+
+                tasksList.innerHTML = '';
+                tasksSnapshot.forEach(doc => {
+                    const task = { id: doc.id, ...doc.data() };
+                    const isCompleted = currentUser.completedBonusTasks.includes(task.id);
+                    
+                    const taskElement = document.createElement('div');
+                    taskElement.className = 'task-item';
+                    taskElement.innerHTML = `
+                        <div class="task-info">
+                            <div class="task-title">${task.title}</div>
+                            <div class="task-description">${task.description}</div>
+                            <div class="task-reward">+${task.reward} USDT</div>
+                        </div>
+                        <button class="btn ${isCompleted ? 'btn-secondary' : 'btn-success'}" 
+                                onclick="claimBonusTask('${task.id}', '${task.url}')" 
+                                ${isCompleted ? 'disabled' : ''}>
+                            ${isCompleted ? 'Claimed' : 'Claim Bonus'}
+                        </button>
+                    `;
+                    tasksList.appendChild(taskElement);
+                });
+            } catch (error) {
+                console.error('Error loading bonus tasks:', error);
+                document.getElementById('bonusTasksList').innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Error loading tasks</p>';
+            }
         }
 
         async function claimBonusTask(taskId, taskUrl) {
@@ -1834,35 +1989,39 @@
         }
 
         async function loadLeaderboards() {
-            // Top Referrers
-            const referrersSnapshot = await db.collection('users')
-                .orderBy('referrals', 'desc')
-                .limit(50)
-                .get();
+            try {
+                // Top Referrers
+                const referrersSnapshot = await db.collection('users')
+                    .orderBy('referrals', 'desc')
+                    .limit(50)
+                    .get();
 
-            const referrersList = document.getElementById('referrersList');
-            referrersList.innerHTML = '';
+                const referrersList = document.getElementById('referrersList');
+                referrersList.innerHTML = '';
 
-            referrersSnapshot.forEach((doc, index) => {
-                const user = doc.data();
-                const item = createLeaderboardItem(index + 1, user.firstName, user.referrals + ' referrals');
-                referrersList.appendChild(item);
-            });
+                referrersSnapshot.forEach((doc, index) => {
+                    const user = doc.data();
+                    const item = createLeaderboardItem(index + 1, user.firstName, user.referrals + ' referrals');
+                    referrersList.appendChild(item);
+                });
 
-            // Top Earners
-            const earnersSnapshot = await db.collection('users')
-                .orderBy('mainBalance', 'desc')
-                .limit(50)
-                .get();
+                // Top Earners
+                const earnersSnapshot = await db.collection('users')
+                    .orderBy('mainBalance', 'desc')
+                    .limit(50)
+                    .get();
 
-            const earnersList = document.getElementById('earnersList');
-            earnersList.innerHTML = '';
+                const earnersList = document.getElementById('earnersList');
+                earnersList.innerHTML = '';
 
-            earnersSnapshot.forEach((doc, index) => {
-                const user = doc.data();
-                const item = createLeaderboardItem(index + 1, user.firstName, '$' + user.mainBalance.toFixed(2));
-                earnersList.appendChild(item);
-            });
+                earnersSnapshot.forEach((doc, index) => {
+                    const user = doc.data();
+                    const item = createLeaderboardItem(index + 1, user.firstName, '$' + user.mainBalance.toFixed(2));
+                    earnersList.appendChild(item);
+                });
+            } catch (error) {
+                console.error('Error loading leaderboards:', error);
+            }
         }
 
         function createLeaderboardItem(rank, name, score) {
@@ -1948,37 +2107,41 @@
         }
 
         async function loadWithdrawalHistory() {
-            const withdrawalsSnapshot = await db.collection('withdrawals')
-                .where('userId', '==', currentUser.id)
-                .orderBy('createdAt', 'desc')
-                .get();
+            try {
+                const withdrawalsSnapshot = await db.collection('withdrawals')
+                    .where('userId', '==', currentUser.id)
+                    .orderBy('createdAt', 'desc')
+                    .get();
 
-            const historyContainer = document.getElementById('withdrawalHistory');
+                const historyContainer = document.getElementById('withdrawalHistory');
 
-            if (withdrawalsSnapshot.empty) {
-                historyContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">No withdrawals yet</p>';
-                return;
+                if (withdrawalsSnapshot.empty) {
+                    historyContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">No withdrawals yet</p>';
+                    return;
+                }
+
+                historyContainer.innerHTML = '';
+                withdrawalsSnapshot.forEach(doc => {
+                    const withdrawal = doc.data();
+                    const date = withdrawal.createdAt?.toDate().toLocaleDateString() || 'N/A';
+                    
+                    const item = document.createElement('div');
+                    item.className = 'withdrawal-item';
+                    item.innerHTML = `
+                        <div class="withdrawal-header">
+                            <div class="withdrawal-amount">${withdrawal.amount.toFixed(2)} USDT</div>
+                            <span class="status-badge status-${withdrawal.status}">${withdrawal.status.toUpperCase()}</span>
+                        </div>
+                        <div style="font-size: 14px; color: var(--text-secondary);">
+                            <div>${withdrawal.method}</div>
+                            <div>${date}</div>
+                        </div>
+                    `;
+                    historyContainer.appendChild(item);
+                });
+            } catch (error) {
+                console.error('Error loading withdrawal history:', error);
             }
-
-            historyContainer.innerHTML = '';
-            withdrawalsSnapshot.forEach(doc => {
-                const withdrawal = doc.data();
-                const date = withdrawal.createdAt?.toDate().toLocaleDateString() || 'N/A';
-                
-                const item = document.createElement('div');
-                item.className = 'withdrawal-item';
-                item.innerHTML = `
-                    <div class="withdrawal-header">
-                        <div class="withdrawal-amount">${withdrawal.amount.toFixed(2)} USDT</div>
-                        <span class="status-badge status-${withdrawal.status}">${withdrawal.status.toUpperCase()}</span>
-                    </div>
-                    <div style="font-size: 14px; color: var(--text-secondary);">
-                        <div>${withdrawal.method}</div>
-                        <div>${date}</div>
-                    </div>
-                `;
-                historyContainer.appendChild(item);
-            });
         }
 
         function renderWeeklyChart() {
